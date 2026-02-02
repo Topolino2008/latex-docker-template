@@ -1,0 +1,63 @@
+\documentclass[lualatex,ja=standard,a4paper,11pt]{bxjsarticle}
+
+% 余白（配布資料っぽいバランス）
+\usepackage{geometry}
+\geometry{
+  reset,
+  top=25mm,
+  bottom=25mm,
+  left=22mm,
+  right=22mm
+}
+
+\usepackage[luatex]{graphicx}
+%\usepackage{graphicx}
+\usepackage{url}
+\usepackage{float}
+\usepackage{subcaption}
+\usepackage{amsmath}
+\usepackage{comment}
+\usepackage{here}
+\usepackage{siunitx}
+\usepackage{bm}
+\usepackage{cite}
+\usepackage{notoccite}
+
+% 行間・段落
+\usepackage{setspace}
+\setstretch{1.15} % ほんの少し読みやすく
+\setlength{\parindent}{0pt}   % 字下げなし（配布資料風）
+\setlength{\parskip}{0.6\baselineskip} % 段落間を少し空ける
+
+% 日本語の句読点・禁則まわりは bxjscls 側で概ね整います
+
+\begin{document}
+
+% ===== タイトル =====
+\begin{center}
+{\Large 令和 7 年度 電子機器特論のレポート}
+\end{center}
+
+% ===== 本文（段落）=====
+このレポートは生成系 AI の使用を前提として課題を出しており、使用することは可能ですが内容を精査してください。
+論説展開の整合性、文章の読みやすさ、レポートとしての体裁を評価基準とします。
+箇条書きは不可とし、論説内容に齟齬があった場合、フォーマットが守れない場合には減点とします。
+AIをうまく使いこなし論説にオリジナリティ持たせることを重視するため、複数人同じような論理展開をしている場合には評価が下がります。
+
+% ===== 課題（番号付き：ただし箇条書き環境は使わず、本文として整形）=====
+\noindent
+１．フィジカルAIの現状と課題について800字以内で調査を行ってください。\\
+\input{section1}
+
+\noindent
+２．以上調べたことをもとに2040年までの日本、アメリカにおけるフィジカルAIの家庭への導入過程を示し、その根拠を示し普及率を1200字以内で推定してください。\\
+\input{section2}
+\noindent
+３．2040年に日本においてフィジカルAIを導入するのにあたり、必要な仕様、価格、克服すべき課題をその根拠を示し具体的に1200字で示してください。
+\input{section3}
+
+\bibliography{reference} %reference.bibから拡張子を外した名前
+\bibliographystyle{unsrturl} %参考文献出力スタイル
+
+
+\end{document}

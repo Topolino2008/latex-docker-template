@@ -1,3 +1,4 @@
+$out_dir = 'outDir';
 $latex = 'uplatex %O -src-specials -shell-escape -interaction=nonstopmode -synctex=1 -kanji=utf8 %S';
 $bibtex = 'upbibtex %O %B -kanji=utf8';
 $dvipdf = 'dvipdfmx %O -o %D %S';
