@@ -1,0 +1,76 @@
+{
+    "name": "LaTeX Dev Container",
+    "build": {
+        "dockerfile": "Dockerfile",
+        "context": ".."
+    },
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "terminal.integrated.shell.linux": "/bin/bash",
+                "latex-workshop.latex.recipes": [
+                    {
+                        "name": "latexmk (lualatex)",
+                        "tools": ["latexmk-lualatex"]
+                    }
+                ],
+                "latex-workshop.latex.tools": [
+                    {
+                        "name": "latexmk-lualatex",
+                        "command": "latexmk",
+                        "args": [
+                            "-lualatex",
+                            "-synctex=1",
+                            "-interaction=nonstopmode",
+                            "-file-line-error",
+                            "%DOC%"
+                        ]
+                    }
+                ],
+                // 使用パッケージのコマンドや環境の補完を有効にする
+                "latex-workshop.intellisense.package.enabled": true,
+                // 生成ファイルを削除するときに対象とするファイル
+                "latex-workshop.latex.clean.fileTypes": [
+                    // "*.bbl",
+                    // "*.blg",
+                    // "*.idx",
+                    // "*.ind",
+                    // "*.lof",
+                    // "*.lot",
+                    // "*.out",
+                    // "*.toc",
+                    // "*.acn",
+                    // "*.acr",
+                    // "*.alg",
+                    // "*.glg",
+                    // "*.glo",
+                    // "*.gls",
+                    // "*.ist",
+                    // "*.fls",
+                    // //"*.log",
+                    // "*.fdb_latexmk",
+                    // "*.snm",
+                    // "*.nav",
+                    // "*.dvi",
+                    // "*.synctex.gz",
+                    // "*.gz"
+                ],
+                // 生成ファイルを "out" ディレクトリに吐き出す
+                "latex-workshop.latex.outDir": "out",
+                "latex-workshop.latex.autoBuild.run": "onSave",
+                "latex-workshop.docker.image.latex": "texlive/texlive:latest",
+                "latex-workshop.latex.autoClean.run": "onBuilt",
+                "latex-workshop.latex.recipe.default": "latexmk (lualatex)"
+            },
+            "extensions": [
+                "James-Yu.latex-workshop",
+                "google.geminicodeassist",
+                "openai.chatgpt",
+                "GitHub.copilot",
+                "GitHub.copilot-chat"
+            ]
+        }
+    },
+    "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind",
+    "workspaceFolder": "/workspace"
+}

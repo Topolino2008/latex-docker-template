@@ -1,0 +1,79 @@
+\documentclass[report,a4j,11pt]{ltjsbook}
+\usepackage[luatex]{graphicx}
+%\usepackage{graphicx}
+\usepackage{url}
+\usepackage{float}
+\usepackage{subcaption}
+\usepackage{amsmath}
+\usepackage{comment}
+%This file is encoded in UTF-8.
+
+
+%\usepackage{txfonts}	% Times系フォントを利用するときはこのコメントを外すo
+%\newcommand{\NiigataUnivMastersThesis}{}% !!!修論はコメントを外せ!!!
+
+\和暦	% 日付を和暦で表示
+
+%%% 均等割りコマンドを定義 %%%
+\newcommand{\kintou}[2]{%
+\leavevmode
+\hbox to #1{
+\ltjsetparameter{kanjiskip=0pt plus 1fill minus 1fill}
+\ltjsetparameter{xkanjiskip=\ltjgetparameter{kanjiskip}}
+#2}}
+
+%%% 均等割りされて表示されるように設定 %%%
+\renewcommand{\contentsname}{\kintou{5\zw}{目次}}
+\renewcommand{\listfigurename}{\kintou{5\zw}{図目次}}
+%\renewcommand{\listtablename}{\kintou{5\zw}{表目次}}
+\renewcommand{\bibname}{\kintou{5\zw}{参考文献}}
+
+\setcounter{tocdepth}{2}	% subsubsectionも目次に表示されるよう設定
+
+
+%%% 【修論のみ】修論の表紙 %%%
+%\ifdefined \NiigataUnivMastersThesis
+%\title{卒論／修論テンプレート}
+%\author{
+%    \kintou{3\zw}{氏名}
+%	\hspace{2\zw}
+%	\kintou{6\zw}{新潟　太郎}
+%	\\
+%	\\
+%	新潟大学 大学院自然科学研究科 博士前期課程 電気情報工学専攻
+%}
+%\date{\today}
+%\fi
+
+\begin{document}
+
+\ifdefined \NiigataUnivMastersThesis
+%\maketitle	% 【修論のみ】修論表紙をつける
+\fi
+
+%%% これより前付 %%%
+\frontmatter
+\ifdefined \NiigataUnivMastersThesis
+%\include{abstract}	% 【修論のみ】修論Abstractをつける
+\fi
+\include{acknowledgement}	% 謝辞
+\tableofcontents	% 目次
+\listoffigures		% 図目次
+\listoftables		% 表目次
+
+%%% これより本文 %%%
+\mainmatter
+\include{introduction}	% 第1章：序論
+\include{nisyou}		% 第2章：水面・河床同時計測の概要
+\include{sansyou}   %第3章：水面・河床応答のシステム同定の提案
+\include{yonsyou}   %第4章：性能評価
+\include{gosyou}    %第5章：おわりに
+%%% これより付録 %%%
+\appendix
+\include{appendix}
+
+%%% 後付け %%%
+\backmatter
+\include{reference}	%参考文献
+
+\end{document}
