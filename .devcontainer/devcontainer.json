@@ -230,7 +230,8 @@
                 "latex-workshop.latex.autoBuild.run": "onSave",
                 "latex-workshop.docker.image.latex": "texlive/texlive:latest",
                 "latex-workshop.latex.autoClean.run": "onBuilt",
-                "latex-workshop.latex.recipe.default": "lastUsed"
+                "latex-workshop.latex.recipe.default": "lastUsed",
+                "git.openRepositoryInParentFolders": "always"
             },
             "extensions": [
                 "James-Yu.latex-workshop",
@@ -242,5 +243,6 @@
         }
     },
     "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind",
-    "workspaceFolder": "/workspace"
+    "workspaceFolder": "/workspace/workspace"
+
 }
